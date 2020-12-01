@@ -7,7 +7,8 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     android:backgroundTint="#000000"
     android:background="?attr/colorPrimary"
-    android:title="Let's start the game"
+    android:title="Welcome to Brain Trainer!"
+    android:orientation="vertical"
     >
 
 
