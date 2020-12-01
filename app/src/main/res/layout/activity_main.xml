@@ -18,9 +18,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Player Name"
+            android:text="Name"
             android:textSize="25dp"
-            android:paddingLeft="20dp"
             android:layout_marginTop="25dp"
             android:textColor="#000000"
             android:id="@+id/nameTv"
@@ -33,7 +32,6 @@
             android:background="#FFFFFF"
             android:layout_marginTop="5dp"
             android:hint="Enter your name here!"
-            android:paddingLeft="20dp"
             android:textSize="20dp"
             style="@style/ThemeOverlay.AppCompat"
 
@@ -43,8 +41,7 @@
             android:id="@+id/levelTv"
             android:layout_height="wrap_content"
             android:textSize="25dp"
-            android:text="Please choose level"
-            android:paddingLeft="20dp"
+            android:text="Please choose levels"
             android:textColor="#000000"
             android:layout_marginTop="35dp"
             />
@@ -52,20 +49,19 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginTop="5dp"
-            android:paddingLeft="20dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
             android:spinnerMode="dropdown"
             android:id="@+id/levelSpinner"
 
             />
         <Button
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:text="Start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Go!"
             android:id="@+id/startButton"
             android:layout_marginTop="200dp"
             android:textColor="#FEFEFF"
-            android:textSize="50dp"
+            android:textSize="80sp"
             android:padding="10dp"
             android:backgroundTint="@color/design_default_color_on_secondary"
             android:onClick="start"
@@ -73,6 +69,9 @@
             android:layout_gravity="center"
 
             />
+
+
+
 
     </LinearLayout>
 
