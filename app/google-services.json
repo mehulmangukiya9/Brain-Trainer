@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "805665033904",
+    "firebase_url": "https://brain-trainer-ad-cff6a.firebaseio.com",
+    "project_id": "brain-trainer-ad-cff6a",
+    "storage_bucket": "brain-trainer-ad-cff6a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805665033904:android:9de0528871b92d77edf575",
+        "android_client_info": {
+          "package_name": "com.example.braintrainerad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805665033904-6baf9485frpouk6vmlhov6lefnk25u79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq4DW7zyBRVQeP7r1YN7BBTyYGAwWSqy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805665033904-6baf9485frpouk6vmlhov6lefnk25u79.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
