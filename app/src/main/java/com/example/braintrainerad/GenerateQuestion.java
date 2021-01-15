@@ -7,16 +7,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.example.braintrainerad.models.Scorecard;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class GenerateQuestion extends AppCompatActivity {
 
     //DatabaseHelper mydb = new DatabaseHelper(this);
+
+    FirebaseFirestore db;
+
+    DatabaseHelper mydb = new DatabaseHelper(this);
 
     TextView resultTextView;
     TextView pointsTextView;
@@ -106,8 +118,20 @@ public class GenerateQuestion extends AppCompatActivity {
                 toolbar.setTitle("Score Board");
 
 
+                boolean isInserted = mydb.insert(nameOfaPlayerIntent, score);
+                if(isInserted == true)
+                {
+                    Toast.makeText(GenerateQuestion.this, "Score has been updated", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(GenerateQuestion.this, "Score has been updated", Toast.LENGTH_SHORT).show();
+                }
+
+
                 progressBar.setProgress((timer-100)/1000);
                 resultTextView.setText(nameOfaPlayerIntent+" Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+                addScore(nameOfaPlayerIntent, score);
                 active=false;
 
             }
@@ -293,6 +317,27 @@ public class GenerateQuestion extends AppCompatActivity {
 
 
 
+    public void addScore(String nameOfaPlayer, int score){
+        Scorecard scorecard = new Scorecard(nameOfaPlayer, score);
+
+        db.collection("scorecard")
+                .add(scorecard)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Toast.makeText(getApplicationContext(), "Score Added.", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getApplicationContext(), "Error"+e.getMessage(),Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        Toast.makeText(getApplicationContext(), nameOfaPlayer,Toast.LENGTH_LONG).show();
+
+    }
 
 
 
