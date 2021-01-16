@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BrainTrainerAd">
+        <activity android:name=".ScoreDataActivity"></activity>
         <activity
             android:name=".GenerateQuestion"
             android:theme="@style/Theme.Design.Light.NoActionBar"
