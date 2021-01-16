@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.braintrainerad.models.Scorecard;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
