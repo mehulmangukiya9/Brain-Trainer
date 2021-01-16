@@ -4,6 +4,7 @@ public class Scorecard
 {
     private String name;
     private int score;
+    private int gameTime;
 
     public Scorecard() {
     }
@@ -24,8 +25,17 @@ public class Scorecard
         this.score = score;
     }
 
-    public Scorecard(String name, int score) {
+    public int getGameTime() {
+        return gameTime;
+    }
+
+    public void setGameTime(int gameTime) {
+        this.gameTime = gameTime;
+    }
+
+    public Scorecard(String name, int score, int time) {
         this.name = name;
         this.score = score;
+        this.gameTime = time;
     }
 }
