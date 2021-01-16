@@ -346,6 +346,9 @@ public class GenerateQuestion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_generate_question);
+
+        db = FirebaseFirestore.getInstance();
+
         sumTextView = findViewById(R.id.sumTV);
         button0 = (Button)findViewById(R.id.OptionButton0);
         button1 = (Button)findViewById(R.id.OptionButton1);
