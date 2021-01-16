@@ -318,7 +318,7 @@ public class GenerateQuestion extends AppCompatActivity {
 
 
     public void addScore(String nameOfaPlayer, int score){
-        Scorecard scorecard = new Scorecard(nameOfaPlayer, score);
+        Scorecard scorecard = new Scorecard(nameOfaPlayer, score, (timer-100)/1000);
 
         db.collection("scorecard")
                 .add(scorecard)
