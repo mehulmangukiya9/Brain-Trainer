@@ -9,17 +9,23 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 import com.example.braintrainerad.models.Scorecard;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -70,11 +76,12 @@ public class GenerateQuestion extends AppCompatActivity {
     int C;
     int[] bigNumb;
 
-    int timer;
+    int gameTime;
+    public static final String ROOT_URL = "http://192.168.2.33/";
 
 
     String levelChosenIntent;
-    String nameOfaPlayerIntent;
+    String name;
 
     public void playAgain1(View view) {
 
@@ -98,7 +105,7 @@ public class GenerateQuestion extends AppCompatActivity {
         generateQuestion1();
 
 
-        new CountDownTimer(timer, 1000) {
+        new CountDownTimer(gameTime, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -119,20 +126,21 @@ public class GenerateQuestion extends AppCompatActivity {
                 toolbar.setTitle("Score Board");
 
 
-                boolean isInserted = mydb.insert(nameOfaPlayerIntent, score);
-                if(isInserted == true)
-                {
-                    Toast.makeText(GenerateQuestion.this, "Score has been updated", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(GenerateQuestion.this, "Score has been updated", Toast.LENGTH_SHORT).show();
-                }
+//                boolean isInserted = mydb.insert(name, score);
+//                if(isInserted == true)
+//                {
+//                    Toast.makeText(GenerateQuestion.this, "Score has been updated", Toast.LENGTH_SHORT).show();
+//                }
+//                else
+//                {
+//                    Toast.makeText(GenerateQuestion.this, "Score has been updated", Toast.LENGTH_SHORT).show();
+//                }
 
 
-                progressBar.setProgress((timer-100)/1000);
-                resultTextView.setText(nameOfaPlayerIntent+" Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
-                addScore(nameOfaPlayerIntent, score);
+                progressBar.setProgress((gameTime-100)/1000);
+                resultTextView.setText(name +" Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+                addScore(name, score);
+                insertUser();
                 active=false;
 
             }
@@ -319,7 +327,7 @@ public class GenerateQuestion extends AppCompatActivity {
 
 
     public void addScore(String nameOfaPlayer, int score){
-        Scorecard scorecard = new Scorecard(nameOfaPlayer, score, (timer-100)/1000);
+        Scorecard scorecard = new Scorecard(nameOfaPlayer, score, (gameTime-100)/1000);
 
         db.collection("scorecard")
                 .add(scorecard)
@@ -339,6 +347,8 @@ public class GenerateQuestion extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), nameOfaPlayer,Toast.LENGTH_LONG).show();
 
     }
+
+    
 
 
 
@@ -366,11 +376,11 @@ public class GenerateQuestion extends AppCompatActivity {
 
         intent = getIntent();
         levelChosenIntent = intent.getStringExtra("levelChosen");
-        nameOfaPlayerIntent = intent.getStringExtra("nameOfaPlayer");
-        timer = Integer.parseInt(intent.getStringExtra("howManySeconds"))*1000+100;
+        name = intent.getStringExtra("nameOfaPlayer");
+        gameTime = Integer.parseInt(intent.getStringExtra("howManySeconds"))*1000+100;
 
         progressBar = findViewById(R.id.progressBar);
-        progressBar.setMax((timer-100)/1000);
+        progressBar.setMax((gameTime-100)/1000);
 
 
         //Toast.makeText(this, levelChosenIntent +" "+ nameOfaPlayerIntent, Toast.LENGTH_SHORT).show();
