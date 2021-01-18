@@ -5,12 +5,18 @@
     android:layout_height="match_parent"
     tools:context=".ScoreDataActivity">
 
-    <TextView
-        android:id="@+id/tv_data"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp"
-        android:textColor="@color/black"
-        android:textAppearance="?attr/textAppearanceSubtitle1"/>
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textAppearance="?attr/textAppearanceSubtitle1"/>
+
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>
