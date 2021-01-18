@@ -77,7 +77,7 @@ public class GenerateQuestion extends AppCompatActivity {
     int[] bigNumb;
 
     int gameTime;
-    public static final String ROOT_URL = "http://192.168.2.18/";
+    public static final String ROOT_URL = "http://192.168.2.33/";
 
 
     String levelChosenIntent;

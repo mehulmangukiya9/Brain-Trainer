@@ -169,13 +169,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.nav_scorecard:
-                startActivity(new Intent(getApplicationContext(), ScoreDataActivity.class));
+                //startActivity(new Intent(getApplicationContext(), ScoreDataActivity.class));
+                Toast.makeText(this, "open firebase scoreCard", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_retrofit:
+                startActivity(new Intent(getApplicationContext(), RetrofitScoreDataActivity.class));
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
     }
 

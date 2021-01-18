@@ -15,6 +15,11 @@
             android:id="@+id/nav_mail"
             android:icon="@drawable/nav_mail"
             android:title="Contact Us" />
+
+        <item
+            android:id="@+id/nav_retrofit"
+            android:icon="@drawable/nav_database"
+            android:title="Retrofit Score" />
     </group>
 
 </menu>

@@ -11,9 +11,15 @@
         android:theme="@style/Theme.BrainTrainerAd">
         <activity android:name=".ScoreDataActivity"></activity>
         <activity
+            android:name=".RetrofitScoreDataActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar"
+
+            ></activity>
+        <activity
             android:name=".GenerateQuestion"
             android:theme="@style/Theme.Design.Light.NoActionBar"
             >
+
         </activity>
         <activity
             android:name=".MainActivity"
